@@ -1,0 +1,119 @@
+<odoo>
+  <data>
+    <!-- List view for ease.ease -->
+    <record model="ir.ui.view" id="ease_list_view">
+      <field name="name">Ease List</field>
+      <field name="model">ease.ease</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="client"/>
+          <field name="secret"/>
+          <field name="shop"/>
+          <field name="type_name"/>
+          <field name="base_url"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Form view for ease.ease -->
+    <record model="ir.ui.view" id="ease_form_view">
+      <field name="name">Ease Form</field>
+      <field name="model">ease.ease</field>
+      <field name="arch" type="xml">
+        <form string="Ease">
+          <header>
+            <button name="activate" type="object" string="Auth" class="btn-primary" />
+          </header>
+          <sheet>
+            <group>
+              <group>
+                <field name="client"/>
+                <field name="secret"/>
+                <field name="fs"/>
+                <field name="shop"/>
+                <field name="type_name"/>
+                <field name="sandbox"/>
+              </group>
+              <group>
+              <field name="auth_url" readonly="1"/>
+              <field name="base_url" readonly="1"/>
+              <field name="header" readonly="1"/>
+            </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Kanban view for ease.ease -->
+    <record model="ir.ui.view" id="ease_kanban_view">
+      <field name="name">Ease Kanban</field>
+      <field name="model">ease.ease</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <field name="client"/>
+          <field name="shop"/>
+          <field name="type_name"/>
+          <field name="base_url"/>
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_card">
+                <strong><field name="client"/></strong>
+                <div><field name="shop"/></div>
+                <div><field name="type_name"/></div>
+                <div><field name="base_url"/></div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <!-- List view for ease.order -->
+    <record model="ir.ui.view" id="order_list_view">
+      <field name="name">Order List</field>
+      <field name="model">ease.order</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="market_place"/>
+          <field name="city"/>
+          <field name="product"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Action for ease.ease views (list and kanban) -->
+    <record model="ir.actions.act_window" id="ease_action_window">
+      <field name="name">Ease Management</field>
+      <field name="res_model">ease.ease</field>
+      <field name="view_mode">kanban,tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Create your first Market Place setup
+        </p>
+      </field>
+    </record>
+
+    <!-- Action for ease.order (list view only) -->
+    <record model="ir.actions.act_window" id="order_action_window">
+      <field name="name">Order Management</field>
+      <field name="res_model">ease.order</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Manage your orders here.
+        </p>
+      </field>
+    </record>
+
+    <!-- Main menu -->
+    <menuitem name="Ease" id="ease_menu_root"/>
+
+    <!-- Menu for ease.ease (kanban & list) -->
+    <menuitem name="Market Place" id="ease_menu_1" parent="ease_menu_root" action="ease_action_window"/>
+
+    <!-- Menu for ease.order (list only) -->
+    <menuitem name="Order" id="order_menu_2" parent="ease_menu_root" action="order_action_window"/>
+
+  </data>
+</odoo>
