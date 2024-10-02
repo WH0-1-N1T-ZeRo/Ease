@@ -3,10 +3,11 @@ import qrcode
 import base64
 from io import BytesIO
 
-class ProductTemplate(models.Model):
-    _inherit = 'product.template'
 
-    qr_code = fields.Binary("QR Code", compute='generate_qr_code')
+class ProductTemplate(models.Model):
+    _inherit = "product.template"
+
+    qr_code = fields.Binary("QR Code", compute="generate_qr_code")
 
     def generate_qr_code(self):
         for rec in self:

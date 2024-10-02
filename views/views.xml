@@ -6,11 +6,11 @@
       <field name="model">ease.ease</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="client"/>
-          <field name="secret"/>
-          <field name="shop"/>
-          <field name="type_name"/>
-          <field name="base_url"/>
+          <field name="client" />
+          <field name="secret" />
+          <field name="shop" />
+          <field name="type_name" />
+          <field name="base_url" />
         </tree>
       </field>
     </record>
@@ -27,18 +27,18 @@
           <sheet>
             <group>
               <group>
-                <field name="client"/>
-                <field name="secret"/>
-                <field name="fs"/>
-                <field name="shop"/>
-                <field name="type_name"/>
-                <field name="sandbox"/>
+                <field name="client" />
+                <field name="secret" />
+                <field name="fs" />
+                <field name="shop" />
+                <field name="type_name" />
+                <field name="sandbox" />
               </group>
               <group>
-              <field name="auth_url" readonly="1"/>
-              <field name="base_url" readonly="1"/>
-              <field name="header" readonly="1"/>
-            </group>
+                <field name="auth_url" readonly="1" />
+                <field name="base_url" readonly="1" />
+                <field name="header" readonly="1" />
+              </group>
             </group>
           </sheet>
         </form>
@@ -51,17 +51,25 @@
       <field name="model">ease.ease</field>
       <field name="arch" type="xml">
         <kanban>
-          <field name="client"/>
-          <field name="shop"/>
-          <field name="type_name"/>
-          <field name="base_url"/>
+          <field name="client" />
+          <field name="shop" />
+          <field name="type_name" />
+          <field name="base_url" />
           <templates>
             <t t-name="kanban-box">
               <div class="oe_kanban_card">
-                <strong><field name="client"/></strong>
-                <div><field name="shop"/></div>
-                <div><field name="type_name"/></div>
-                <div><field name="base_url"/></div>
+                <strong>
+                  <field name="client" />
+                </strong>
+                <div>
+                  <field name="shop" />
+                </div>
+                <div>
+                  <field name="type_name" />
+                </div>
+                <div>
+                  <field name="base_url" />
+                </div>
               </div>
             </t>
           </templates>
@@ -75,9 +83,9 @@
       <field name="model">ease.order</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="market_place"/>
-          <field name="city"/>
-          <field name="product"/>
+          <field name="market_place" />
+          <field name="city" />
+          <field name="product" />
         </tree>
       </field>
     </record>
@@ -107,13 +115,14 @@
     </record>
 
     <!-- Main menu -->
-    <menuitem name="Ease" id="ease_menu_root"/>
+    <menuitem name="Ease" id="ease_menu_root" />
 
     <!-- Menu for ease.ease (kanban & list) -->
-    <menuitem name="Market Place" id="ease_menu_1" parent="ease_menu_root" action="ease_action_window"/>
+    <menuitem name="Market Place" id="ease_menu_1" parent="ease_menu_root"
+      action="ease_action_window" />
 
     <!-- Menu for ease.order (list only) -->
-    <menuitem name="Order" id="order_menu_2" parent="ease_menu_root" action="order_action_window"/>
+    <menuitem name="Order" id="order_menu_2" parent="ease_menu_root" action="order_action_window" />
 
   </data>
 </odoo>
