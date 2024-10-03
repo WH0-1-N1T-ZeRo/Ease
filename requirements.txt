@@ -1,0 +1,7 @@
+# Babel version constraint based on Python version
+Babel==2.9.1 ; python_version < '3.11'
+Babel==2.10.3 ; python_version >= '3.11'
+
+# Selenium and Webdriver Manager dependencies
+selenium==4.11.2
+webdriver-manager==4.0.0
